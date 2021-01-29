@@ -1,9 +1,14 @@
-﻿Import-Module activedirectory
+﻿#Importujemy moduł jeżeli jeszcze go nie mamy, który pozwala nam na wykorzystanie Search-ADAccount
+Import-Module activedirectory
 
+#Ustawiamy domyślne formaty kodowania do UTF8 aby poprawnie wyświetlać polskie znaki diakrytyczne
 $PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
 $PSDefaultParameterValues['*:Encoding'] = 'utf8'
+
+#Ustawiamy zmienną którą potem przekazujemy do skryptów potomnych aby katalog roboczy zawsze był ten san
 $workDir = $PSScriptRoot
 
+#Funkcja Authors zawiera informacje o autorach tego skrypty
 function Authors
 {
     Write-Host    "AZ1 Poprawa"
@@ -17,6 +22,7 @@ function Authors
     Write-Host ""
 }
 
+#Funkcja odpowiedzialna za wyświetlanie menu
 function Show-Menu
 {
     Clear-Host
@@ -42,7 +48,7 @@ function Show-Menu
     Write-Host "======================================"
 }
 
-#Wyświetlenie menu i oczekiwanie na decyzję
+#Wyświetlenie menu i oczekiwanie na decyzję. Po wybraniu odpowiedniej opcji jest wywoływany odpowiedni skrypt potomny.
 do
 {
     Show-Menu
