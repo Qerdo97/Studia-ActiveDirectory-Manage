@@ -9,8 +9,8 @@ function blockuser
     $domain = (Get-ADDomain).name
     $login= read-host "Podaj login użytkownika do zablokowania"
     try {
-    $login = Get-ADuser -Filter { SamAccountName -eq $login }
-    Disable-ADAccount -identity $login.samAccountName
+    $sam = Get-ADuser -Filter { SamAccountName -eq $login }
+    Disable-ADAccount -identity $sam.samAccountName
     Set-ADUser -identity $login -SmartcardLogonRequired $True
     $time = Get-Date
     $user= whoami
