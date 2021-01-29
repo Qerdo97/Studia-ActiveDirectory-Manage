@@ -1,8 +1,8 @@
 ﻿#Generacja pustego plik
 write-host "1. Generacja pustego pliku CSV z nagłówkami"
 write-host "2. Tworzenie użytkowników z pliku CSV"
-$path="$workdir\inputs\importusersblank.csv"
-$header ="login|hasło|dział"
+$path = "$workdir\inputs\importusersblank.csv"
+$header = "login|hasło|dział"
 $selection = Read-Host "Proszę dokonać wyboru:"
 switch ($selection)
 {
@@ -19,7 +19,7 @@ switch ($selection)
 }
 function generateCSV
 {
-New-Item $path |Add-Content -Value $header -Encoding Default
+    New-Item $path |Add-Content -Value $header -Encoding Default
 }
 
 function importCSV

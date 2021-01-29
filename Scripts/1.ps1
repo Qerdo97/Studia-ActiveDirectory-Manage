@@ -5,15 +5,16 @@ $lastname = Read-Host -Prompt 'Podaj naziwsko'
 $department = Read-Host -Prompt 'Podaj dział'
 $domain = (Get-ADDomain).dnsroot
 $header = "Login|Hasło"
-$path="$workdir\inputs\nazwa użytkownika.txt"
+$path = "$workdir\inputs\nazwa użytkownika.txt"
 $displayname = $firstname + ” ” + $lastname
 $password = [System.Web.Security.Membership]::GeneratePassword(8, 2)
 $securityPassword = ConvertTo-SecureString -String $password -AsPlainText -Force
 $inc = 0
 $login = "${firstname}.${lastname}"
 $sam = $login
-if (-not( Test-path $path)){
-New-Item $path |Add-Content -Value $header -Encoding Default
+if (-not( Test-path $path))
+{
+    New-Item $path |Add-Content -Value $header -Encoding Default
 }
 if (Get-ADuser -Filter { SamAccountName -eq $login })
 {
