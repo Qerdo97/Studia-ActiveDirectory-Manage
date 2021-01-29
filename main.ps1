@@ -83,10 +83,6 @@ do
             Clear-Host
             &"$workDir\Scripts\7.ps1" -workDir $workDir
         }
-        '8' {
-            Clear-Host
-            &"$workDir\Scripts\8.ps1" -workDir $workDir
-        }
         'a' {
             Clear-Host
             Authors
