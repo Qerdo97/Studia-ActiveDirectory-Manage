@@ -87,7 +87,11 @@ do
             Clear-Host
             Authors
         }
+        'q' {
+
+        }
         Default {
+            Clear-Host
             "Nie ma takiej opcji"
         }
     }
