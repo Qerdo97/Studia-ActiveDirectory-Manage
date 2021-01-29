@@ -9,7 +9,7 @@ Write-Host ""
 New-Item -Path $workDir\Outputs -Name "$fileName.txt" -Force
 
 #Pobieramy informacje o wszystkich zablokowanych użytkownikach
-$users = Search-ADAccount -LockedOut | Sort-Object name | Select-Object name
+$users = Get-ADUser -Filter {Enabled -eq 'false'} | Select-Object name | Sort-Object name
 
 #W pętli odnosimy się do każdego obiektu zmiennej users i zostawiamy z niej tylko konkretną elementarną nazwę użytkowniak a następnie wpisujemy ją do pliku
 foreach ($user in $users)

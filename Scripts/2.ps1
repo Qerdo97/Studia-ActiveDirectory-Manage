@@ -36,7 +36,7 @@ function importCSV
         New-ADUser -Name $login -DisplayName $displayname -SamAccountName $login -UserPrincipalName "$mail" -EmailAddress $mail -GivenName "$firstname" -Surname "$lastname" -Department $Department -AccountPassword $securityPassword -Enabled $true -Path "DC=$( $domain.Split(".")[0] ),DC=$( $domain.Split(".")[1] )" -ChangePasswordAtLogon $true -PasswordNeverExpires $false
         }
 }
-$choose = Read-Host "Proszę dokonać wyboru:"
+$choose = Read-Host "Proszę dokonać wyboru"
 switch ($choose)
 {
     '1' {
