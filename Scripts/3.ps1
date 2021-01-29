@@ -1,28 +1,11 @@
 ﻿#Generacja pustego plik
-write-host "1. Generacja pustego pliku CSV z nagłówkami"
-write-host "2. Tworzenie użytkowników z pliku CSV"
+write-host "Podaj nazwe użytkownika do zablokowania"
 $path="$workdir\inputs\importusersblank.csv"
 $header ="login|hasło|dział"
 $selection = Read-Host "Proszę dokonać wyboru:"
-switch ($selection)
-{
-    '1' {
-        Clear-Host
-        '1. Generacja pustego pliku CSV z nagłówkami'
-        generateCSV
-    }
-    '2' {
-        Clear-Host
-        '2. Tworzenie użytkowników z pliku CSV'
-        importCSV
-    }
-}
-function generateCSV
-{
-New-Item $path |Add-Content -Value $header -Encoding Default
-}
 
-function importCSV
+      
+function blockuser
 {
     Write-host "Plik powinne się znajdować w folderze inputs!"
     $read = read-host -Prompt "Podaj nazwe pliku"
