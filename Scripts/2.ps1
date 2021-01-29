@@ -1,10 +1,10 @@
 ﻿#Generacja pustego plik
 write-host "1. Generacja pustego pliku CSV z nagłówkami"
 write-host "2. Tworzenie użytkowników z pliku CSV"
-$path="$workdir\inputs\uzytkownicy.csv"
+$path="$workdir\inputs\.csv"
 $header ="login|hasło|dział"
-$selection = Read-Host "Proszę dokonać wyboru:"
-switch ($selection)
+$choose = Read-Host "Proszę dokonać wyboru:"
+switch ($choose)
 {
     '1' {
         Clear-Host
@@ -12,18 +12,16 @@ switch ($selection)
     }
     '2' {
         Clear-Host
-        '2. Tworzenie użytkowników z pliku CSV'
         importCSV
     }
 }
 function generateCSV
 {
-remove-item $path -force
-New-Item $path |Add-Content -Value $header -Encoding Default -force
+New-Item $path |Add-Content -Value $header -Encoding Default
 }
-
 function importCSV
 {
+    Write-host "Plik powinne się znajdować w folderze inputs!"
     $users = Import-Csv $workdir/inputs/uzytkownicy.csv -Delimiter "|" -Encoding Default
     foreach ($user in $users)
     {
@@ -46,7 +44,6 @@ function importCSV
             }
             until(-not(Get-ADuser -Filter { SamAccountName -eq $login }))
         }
-        New-ADUser -Name $login -DisplayName $displayname -SamAccountName $login -UserPrincipalName "$mail" -GivenName "$firstname" -Surname "$lastname" -Department $Department -AccountPassword $securityPassword -Enabled $true -Path "DC=$( $domain.Split(".")[0] ),DC=$( $domain.Split(".")[1] )" -ChangePasswordAtLogon $true -PasswordNeverExpires $false
-        Write-host "użytkownicy zostali dodani"
+        New-ADUser -Name $login -DisplayName $displayname -SamAccountName $login -UserPrincipalName "$mail" -EmailAddress $mail -GivenName "$firstname" -Surname "$lastname" -Department $Department -AccountPassword $securityPassword -Enabled $true -Path "DC=$( $domain.Split(".")[0] ),DC=$( $domain.Split(".")[1] )" -ChangePasswordAtLogon $true -PasswordNeverExpires $false
     }
 }
