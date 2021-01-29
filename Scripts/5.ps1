@@ -15,7 +15,9 @@ $user = Read-Host "Proszę podać login użytkownika na którym ma zostać wykon
 try
 {
     Add-ADGroupMember -Identity $group -Members $user
-    New-Item -Path $workDir\Outputs -Name $fileName.txt -Force
+    if (-not( Test-path $workDir\Outputs\$fileName.txt)){
+        New-Item -Path $workDir\Outputs -Name $fileName.txt -Force
+    }
     Add-Content -Path "$workDir\Outputs\$fileName.txt" -Value "Użytkownik $me dodał użytkownika $user do grupy $group"
 }
 catch
