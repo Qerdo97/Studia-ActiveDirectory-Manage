@@ -1,0 +1,21 @@
+Admin_0 Kowalski_17313
+Administrator
+Dev_0 PSshell_17313
+Dev_1 PSshell_17313
+Dev_2 PSshell_17313
+Helpdesk_0 Nowak_17313
+Helpdesk_1 Nowak_17313
+Helpdesk_2 Nowak_17313
+Helpdesk_3 Nowak_17313
+Helpdesk_4 Nowak_17313
+Helpdesk_5 Nowak_17313
+Helpdesk_6 Nowak_17313
+Jan Testowy
+krbtgt
+Sekula
+user 17313_ADM0
+user 17313_HR0
+user 17313_IT0
+user1
+user2
+user3

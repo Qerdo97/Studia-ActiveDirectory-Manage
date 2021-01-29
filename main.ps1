@@ -1,4 +1,6 @@
-﻿$PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
+﻿Import-Module activedirectory
+
+$PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
 $PSDefaultParameterValues['*:Encoding'] = 'utf8'
 $workDir = $PSScriptRoot
 
