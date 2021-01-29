@@ -12,6 +12,9 @@ $securityPassword = ConvertTo-SecureString -String $password -AsPlainText -Force
 $inc = 0
 $login = "${firstname}.${lastname}"
 $sam = $login
+if (-not( Test-path $path)){
+New-Item $path |Add-Content -Value $header -Encoding Default
+}
 if (Get-ADuser -Filter { SamAccountName -eq $login })
 {
     do
@@ -24,4 +27,4 @@ if (Get-ADuser -Filter { SamAccountName -eq $login })
 $mail = $login + „@” + $domain
 New-ADUser -Name $login -DisplayName $displayname -SamAccountName $login -UserPrincipalName "$mail" -GivenName "$firstname" -Surname "$lastname" -Department $department -AccountPassword $securityPassword -Enabled $true -Path "DC=$( $domain.Split(".")[0] ),DC=$( $domain.Split(".")[1] )" -ChangePasswordAtLogon $true -PasswordNeverExpires $false
 New-Item $path |Add-Content -Value $header -Encoding Default
-Add-Content -Value "$login|$password" -Path "$workdir/outputs/nazwa użytkownika.txt" -append -Encoding Default
+Add-Content -Value "$login|$password" -Path "$workdir/outputs/nazwa użytkownika.txt" -Encoding Default
