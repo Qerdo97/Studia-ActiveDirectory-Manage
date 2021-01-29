@@ -1,5 +1,5 @@
-﻿$PSDefaultParameterValues['Out-File:Encoding'] = 'utf8BOM'
-$PSDefaultParameterValues['*:Encoding'] = 'utf8BOM'
+﻿$PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
+$PSDefaultParameterValues['*:Encoding'] = 'utf8'
 $workDir = $PSScriptRoot
 
 function Authors
@@ -12,6 +12,7 @@ function Authors
     Write-Host    ""
     Write-Host    "Robert Łobasiuk"
     Write-Host    "Nr indeksu: 17266"
+    Write-Host ""
 }
 
 function Show-Menu
@@ -43,7 +44,7 @@ function Show-Menu
 do
 {
     Show-Menu
-    $selection = Read-Host "Proszę dokonać wyboru:"
+    $selection = Read-Host "Proszę dokonać wyboru"
     switch ($selection)
     {
         '1' {
