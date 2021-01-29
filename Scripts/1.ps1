@@ -1,20 +1,28 @@
 ﻿#Deklaracja  zmiennych 
 Add-Type -AssemblyName System.Web
+function Get-RandomCharacters($length, $characters) {
+    $random = 1..$length | ForEach-Object { Get-Random -Maximum $characters.length }
+    $private:ofs=""
+    return [String]$characters[$random]
+}
 $firstname = Read-Host -Prompt 'Podaj imie'
 $lastname = Read-Host -Prompt 'Podaj naziwsko'
 $department = Read-Host -Prompt 'Podaj dział'
 $domain = (Get-ADDomain).dnsroot
 $header = "Login|Hasło"
-$path = "$workdir\inputs\nazwa użytkownika.txt"
+$path="$workdir\inputs\nazwa użytkownika.txt"
 $displayname = $firstname + ” ” + $lastname
-$password = [System.Web.Security.Membership]::GeneratePassword(8, 2)
+$password = Get-RandomCharacters -length 7 -characters 'abcdefghiklmnoprstuvwxyz'
+$password += Get-RandomCharacters -length 2 -characters 'ABCDEFGHKLMNOPRSTUVWXYZ'
+$password += Get-RandomCharacters -length 3 -characters '1234567890'
+$password += Get-RandomCharacters -length 2 -characters '!"§$%&/()=?}][{@#*+'
+
 $securityPassword = ConvertTo-SecureString -String $password -AsPlainText -Force
 $inc = 0
 $login = "${firstname}.${lastname}"
 $sam = $login
-if (-not( Test-path $path))
-{
-    New-Item $path |Add-Content -Value $header -Encoding Default
+if (-not( Test-path $path)){
+New-Item $path |Add-Content -Value $header -Encoding Default
 }
 if (Get-ADuser -Filter { SamAccountName -eq $login })
 {
