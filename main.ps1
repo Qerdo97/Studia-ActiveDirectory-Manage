@@ -48,19 +48,19 @@ do
     {
         '1' {
             cls
-            'You chose option #1'
+            &"$workDir\Scripts\1.ps1" -workDir $workDir
         }
         '2' {
             cls
-            'You chose option #2'
+            &"$workDir\Scripts\2.ps1" -workDir $workDir
         }
         '3' {
             cls
-            'You chose option #3'
+            &"$workDir\Scripts\3.ps1" -workDir $workDir
         }
         '4' {
             cls
-            'You chose option #4'
+            &"$workDir\Scripts\4.ps1" -workDir $workDir
         }
         '5' {
             cls
@@ -68,15 +68,15 @@ do
         }
         '6' {
             cls
-            'You chose option #6'
+            &"$workDir\Scripts\6.ps1" -workDir $workDir
         }
         '7' {
             cls
-            'You chose option #7'
+            &"$workDir\Scripts\7.ps1" -workDir $workDir
         }
         '8' {
             cls
-            'You chose option #8'
+            &"$workDir\Scripts\8.ps1" -workDir $workDir
         }
         'a' {
             cls
