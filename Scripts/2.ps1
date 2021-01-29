@@ -1,34 +1,38 @@
 ﻿#Generacja pustego plik
-Add-Type -AssemblyName System.Webu
 write-host "1. Generacja pustego pliku CSV z nagłówkami"
 write-host "2. Tworzenie użytkowników z pliku CSV"
+$path="$workdir\inputs\importusersblank.csv"
+$header ="login|hasło|dział"
 $selection = Read-Host "Proszę dokonać wyboru:"
 switch ($selection)
 {
-    'generateCSV' {
+    '1' {
         Clear-Host
         '1. Generacja pustego pliku CSV z nagłówkami'
+        generateCSV
     }
-    'importCSV' {
+    '2' {
         Clear-Host
         '2. Tworzenie użytkowników z pliku CSV'
+        importCSV
     }
 }
 function generateCSV
 {
-    Add-Content -Value "login|hasło|dział" -Path "$workdir/inputs/importusersblank.csv" -Encoding Default
+New-Item $path |Add-Content -Value $header -Encoding Default
 }
 
 function importCSV
 {
-    Write-host "Plik powinne się znajdować w input!"
-    $file = read-host -Prompt "Podaj nazwe pliku"
-    $users = Import-Csv $workdir/inputs/$file -Delimiter "|" -Encoding Default
+    Write-host "Plik powinne się znajdować w folderze inputs!"
+    $read = read-host -Prompt "Podaj nazwe pliku"
+    $users = Import-Csv $workdir/inputs/$file.csv -Delimiter "|" -Encoding Default
     foreach ($user in $users)
     {
         $login = $user.login
-        $SecurityPassword = ConvertTo-SecureString -String $user.Haslo -AsPlainText -Force
-        $department = $user.dział
+        $password = $user.haslo
+        $SecurityPassword = ConvertTo-SecureString -String $password -AsPlainText -Force
+        $department = $user.dzial
         $firstname, $lastname = $login.split(".")[0, -1]
         $domain = (Get-ADDomain).dnsroot
         $displayname = $firstname + ” ” + $lastname
