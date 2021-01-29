@@ -10,7 +10,7 @@ $lastname = Read-Host -Prompt 'Podaj naziwsko'
 $department = Read-Host -Prompt 'Podaj dział'
 $domain = (Get-ADDomain).dnsroot
 $header = "Login|Hasło"
-$path="$workdiroutputs/nazwa użytkownika.txt"
+$path="$workdir/outputs/nazwa użytkownika.txt"
 $displayname = $firstname + ” ” + $lastname
 $password = Get-RandomCharacters -length 7 -characters 'abcdefghiklmnoprstuvwxyz'
 $password += Get-RandomCharacters -length 2 -characters 'ABCDEFGHKLMNOPRSTUVWXYZ'
@@ -34,5 +34,5 @@ if (Get-ADuser -Filter { SamAccountName -eq $login })
     until(-not(Get-ADuser -Filter { SamAccountName -eq $login }))
 }
 $mail = $login + „@” + $domain
-New-ADUser -Name $login -DisplayName $displayname -SamAccountName $login -UserPrincipalName "$mail" -EmailAddress $mail -GivenName "$firstname" -Surname "$lastname" -Department $department -AccountPassword $securityPassword -Enabled $true -Path "DC=$( $domain.Split(".")[0] ),DC=$( $domain.Split(".")[1] )" -ChangePasswordAtLogon $true -PasswordNeverExpires $false
+New-ADUser -Name $login -DisplayName $displayname -SamAccountName $login -UserPrincipalName "$mail" -GivenName "$firstname" -Surname "$lastname" -Department $department -AccountPassword $securityPassword -Enabled $true -Path "DC=$( $domain.Split(".")[0] ),DC=$( $domain.Split(".")[1] )" -ChangePasswordAtLogon $true -PasswordNeverExpires $false
 Add-Content -Value "$login|$password" -Path $path -Encoding Default
