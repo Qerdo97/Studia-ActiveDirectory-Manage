@@ -17,12 +17,15 @@ write-host "2. Tworzenie użytkowników z pliku CSV"
     }
 function generateCSV
 {
-Add-Content -Value "login|hasło|dział" -Path "$workdir/input/importusersblank.csv" -Encoding Default
-
+Add-Content -Value "login|hasło|dział" -Path "$workdir/inputs/importusersblank.csv" -Encoding Default
 }
+
 function importCSV{
-$users = Import-Csv $path$filename -Delimiter "|" -Encoding Default 
+Write-host "Plik powinne się znajdować w input!"
+$file = read-host -Prompt "Podaj nazwe pliku"
+$users = Import-Csv $workdir/inputs/$file -Delimiter "|" -Encoding Default 
 foreach($user in $users){
+$login=$user.Nazwa użytkownika
 $firstname =
 }
 }
