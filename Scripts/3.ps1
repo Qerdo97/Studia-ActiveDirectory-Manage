@@ -14,7 +14,7 @@ function blockuser
     Set-ADUser -identity $login -SmartcardLogonRequired $True
     $time = Get-Date
     $user= whoami
-    $blockeduser=$login.SamAccountName
+    $blockeduser=$sam.SamAccountName
     Add-Content -value "$domain\$blockeduser|$time|$user" -path $path
     write-host "Użytkownik został zablokowany"
     }
