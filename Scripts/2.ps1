@@ -4,17 +4,15 @@ write-host "2. Tworzenie użytkowników z pliku CSV"
 $path="$workdir\inputs\importusersblank.csv"
 
 $header ="login|hasło|dział"
-$selection = Read-Host "Proszę dokonać wyboru:"
-switch ($selection)
+$choose = Read-Host "Proszę dokonać wyboru:"
+switch ($choose)
 {
     '1' {
         Clear-Host
-        '1. Generacja pustego pliku CSV z nagłówkami'
         generateCSV
     }
     '2' {
         Clear-Host
-        '2. Tworzenie użytkowników z pliku CSV'
         importCSV
     }
 }
