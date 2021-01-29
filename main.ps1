@@ -1,5 +1,5 @@
-﻿$PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
-$PSDefaultParameterValues['*:Encoding'] = 'utf8'
+﻿$PSDefaultParameterValues['Out-File:Encoding'] = 'utf8BOM'
+$PSDefaultParameterValues['*:Encoding'] = 'utf8BOM'
 $workDir = $PSScriptRoot
 
 function Authors
@@ -12,7 +12,6 @@ function Authors
     Write-Host    ""
     Write-Host    "Robert Łobasiuk"
     Write-Host    "Nr indeksu: 17266"
-    Write-Host ""
 }
 
 function Show-Menu
@@ -44,24 +43,24 @@ function Show-Menu
 do
 {
     Show-Menu
-    $selection = Read-Host "Proszę dokonać wyboru"
+    $selection = Read-Host "Proszę dokonać wyboru:"
     switch ($selection)
     {
         '1' {
             cls
-            &"$workDir\Scripts\1.ps1" -workDir $workDir
+            'You chose option #1'
         }
         '2' {
             cls
-            &"$workDir\Scripts\2.ps1" -workDir $workDir
+            'You chose option #2'
         }
         '3' {
             cls
-            &"$workDir\Scripts\3.ps1" -workDir $workDir
+            'You chose option #3'
         }
         '4' {
             cls
-            &"$workDir\Scripts\4.ps1" -workDir $workDir
+            'You chose option #4'
         }
         '5' {
             cls
@@ -69,15 +68,15 @@ do
         }
         '6' {
             cls
-            &"$workDir\Scripts\6.ps1" -workDir $workDir
+            'You chose option #6'
         }
         '7' {
             cls
-            &"$workDir\Scripts\7.ps1" -workDir $workDir
+            'You chose option #7'
         }
         '8' {
             cls
-            &"$workDir\Scripts\8.ps1" -workDir $workDir
+            'You chose option #8'
         }
         'a' {
             cls
