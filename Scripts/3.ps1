@@ -1,6 +1,6 @@
 ﻿#Generacja pustego plik
 $path="$workdir\outputs\zablokowane konta data.txt"
-$header ="Zablokowany użytkownik|data|Zablokowany przez użytkownika"
+$header ="Zablokowany użytkownik|Data|Zablokowany przez użytkownika"
 if (-not( Test-path $path)){
 New-Item $path |Add-Content -Value $header -Encoding Default
 }

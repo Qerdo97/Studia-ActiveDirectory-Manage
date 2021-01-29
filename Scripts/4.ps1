@@ -1,16 +1,17 @@
 ﻿#Generacja pustego plik
-$path="$workdir\outputs\zablokowane konta data.txt"
-$header ="Zablokowany użytkownik|data|Zablokowany przez użytkownika"
+$path="$workdir\outputs\zmienione hasła.txt"
+$header ="Zmieniono hasło dla użytkownika|Data|Zmieniono przez użytkownika"
 if (-not( Test-path $path)){
 New-Item $path |Add-Content -Value $header -Encoding Default
 }
-function blockuser
+function changepassword
 {
     $domain = (Get-ADDomain).name
-    $login= read-host "Podaj nazwe użytkownika do zablokowania"
+    $login = read-host "Podaj nazwe użytkownika do zmiany hasła"
+    $password = read-host "Podaj hasło"
     try {
     $login = Get-ADuser -Filter { SamAccountName -eq $login }
-    Disable-ADAccount -identity $login.samAccountName
+    Set-ADAccountPassword -identity $login.samAccountName -Reset -NewPassword (ConvertTo-SecureString -AsPlainText $password -Force)
     Set-ADUser -identity $login -SmartcardLogonRequired $True
     $time = Get-Date
     $user= whoami
@@ -24,4 +25,4 @@ function blockuser
     }
 
 }
-blockuser 
+changepassword
