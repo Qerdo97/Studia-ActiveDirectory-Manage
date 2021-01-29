@@ -1,16 +1,17 @@
 ﻿$PSDefaultParameterValues['Out-File:Encoding'] = 'utf8BOM'
 $PSDefaultParameterValues['*:Encoding'] = 'utf8BOM'
+$workDir = $PSScriptRoot
 
 function Authors
 {
-Write-Host    "AZ1 Poprawa"
-Write-Host    ""
-Write-Host    "Authors:"
-Write-Host    "Grzegorz Sekuła"
-Write-Host    "Nr indeksu: 17313"
-Write-Host    ""
-Write-Host    "Robert Łobasiuk"
-Write-Host    "Nr indeksu: 17266"
+    Write-Host    "AZ1 Poprawa"
+    Write-Host    ""
+    Write-Host    "Authors:"
+    Write-Host    "Grzegorz Sekuła"
+    Write-Host    "Nr indeksu: 17313"
+    Write-Host    ""
+    Write-Host    "Robert Łobasiuk"
+    Write-Host    "Nr indeksu: 17266"
 }
 
 function Show-Menu
@@ -63,7 +64,7 @@ do
         }
         '5' {
             cls
-            'You chose option #5'
+            &"$workDir\Scripts\5.ps1" -workDir $workDir
         }
         '6' {
             cls
