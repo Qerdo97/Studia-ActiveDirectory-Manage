@@ -48,7 +48,7 @@ do
     {
         '1' {
             cls
-            &"$workDir\Scripts\1.ps1" -workDir $workDir
+            'You chose option #1'
         }
         '2' {
             cls
