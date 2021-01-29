@@ -9,7 +9,7 @@ function changepassword
 {
     $domain = (Get-ADDomain).name
     $login = read-host "Podaj nazwe użytkownika do zmiany hasła"
-    $password = read-host "Podaj hasło"
+    $password = read-host -MaskInput "Podaj hasło"
     try
     {
         $login = Get-ADuser -Filter { SamAccountName -eq $login }
