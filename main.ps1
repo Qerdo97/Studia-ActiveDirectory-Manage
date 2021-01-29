@@ -87,6 +87,9 @@ do
             Clear-Host
             Authors
         }
+        Default {
+            "Nie ma takiej opcji"
+        }
     }
     pause
 }
