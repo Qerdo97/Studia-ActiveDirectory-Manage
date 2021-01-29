@@ -6,7 +6,7 @@ Write-Host "Generowanie raportu - lista zablokowanych kont w domenie"
 Write-Host ""
 
 #Tworzymy nowy plik w Outputs
-New-Item -Path $workDir\Outputs -Name "$fileName.txt" -Force
+New-Item -Path "$workDir\Outputs" -Name "$fileName.txt" -Force
 
 #Pobieramy informacje o wszystkich zablokowanych użytkownikach
 $users = Get-ADUser -Filter {Enabled -eq 'false'} | Select-Object name | Sort-Object name
@@ -15,5 +15,5 @@ $users = Get-ADUser -Filter {Enabled -eq 'false'} | Select-Object name | Sort-Ob
 foreach ($user in $users)
 {
     $onlyUserName = $user.name
-    Add-Content -Path "$workDir\Outputs\$onlyGroupName.txt" -Value $onlyUserName
+    Add-Content -Path "$workDir\Outputs\$fileName.txt" -Value "$onlyUserName"
 }

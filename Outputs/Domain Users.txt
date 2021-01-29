@@ -1,4 +1,4 @@
-Admin_0 Kowalski_17313
+﻿Admin_0 Kowalski_17313
 Administrator
 Dev_0 PSshell_17313
 Dev_1 PSshell_17313
@@ -12,7 +12,25 @@ Helpdesk_5 Nowak_17313
 Helpdesk_6 Nowak_17313
 Jan Testowy
 krbtgt
+Rober.Lobasiuk
+Robert.Łobasiuk
+Robert.Łobasiuk1
+Robert.Łobasiuk2
+Robert.Łobasiuk3
+Robert.Łobasiuk4
+Robert.Lobasiuk5
+Robert.Lobasiuk6
 Sekula
+shakra
+shakra1
+shakra2
+shakra3
+shakra4
+shakra5
+shakra6
+shakra7
+shakra8
+shakra9
 user 17313_ADM0
 user 17313_HR0
 user 17313_IT0
