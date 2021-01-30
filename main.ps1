@@ -19,7 +19,9 @@ function Authors
     Write-Host    ""
     Write-Host    "Robert Łobasiuk"
     Write-Host    "Nr indeksu: 17266"
-    Write-Host ""
+    Write-Host    ""
+    Write-Host    "Nr grupy: IZ07TC01"
+    Write-Host    ""
 }
 
 #Funkcja odpowiedzialna za wyświetlanie menu
