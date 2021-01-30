@@ -1,5 +1,4 @@
-﻿#Generacja pustego plik
-$path = "$workdir\outputs\zablokowane konta data.txt"
+﻿$path = "$workdir\outputs\zablokowane konta data.txt"
 $header = "Zablokowany użytkownik|Data|Zablokowany przez użytkownika"
 if (-not( Test-path $path))
 {
@@ -13,7 +12,6 @@ function blockuser
     {
         $sam = Get-ADuser -Filter { SamAccountName -eq $login }
         Disable-ADAccount -identity $sam.samAccountName
-        Set-ADUser -identity $login -SmartcardLogonRequired $True
         $time = Get-Date
         $user = whoami
         $blockeduser = $sam.SamAccountName

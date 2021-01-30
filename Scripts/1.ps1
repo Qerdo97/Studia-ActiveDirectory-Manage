@@ -1,5 +1,4 @@
-﻿#Deklaracja  zmiennych 
-Add-Type -AssemblyName System.Web
+﻿Add-Type -AssemblyName System.Web
 function Get-RandomCharacters($length, $characters)
 {
     $random = 1..$length | ForEach-Object { Get-Random -Maximum $characters.length }

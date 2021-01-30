@@ -1,5 +1,4 @@
-﻿#Generacja pustego plik
-$path = "$workdir\outputs\zmienione hasła.txt"
+﻿$path = "$workdir\outputs\zmienione hasła.txt"
 $header = "Zmieniono hasło dla użytkownika|Data|Zmieniono przez użytkownika"
 if (-not( Test-path $path))
 {
@@ -14,7 +13,6 @@ function changepassword
     {
         $login = Get-ADuser -Filter { SamAccountName -eq $login }
         Set-ADAccountPassword -identity $login -Reset -NewPassword (ConvertTo-SecureString -AsPlainText $password -Force)
-        Set-ADUser -identity $login -SmartcardLogonRequired $True
         $time = Get-Date
         $user = whoami
         $changePasswordUser = $login.SamAccountName

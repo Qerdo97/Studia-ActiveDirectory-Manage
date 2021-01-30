@@ -1,5 +1,4 @@
-﻿#Generacja pustego plik
-write-host "1. Generacja pustego pliku CSV z nagłówkami"
+﻿write-host "1. Generacja pustego pliku CSV z nagłówkami"
 write-host "2. Tworzenie użytkowników z pliku CSV"
 $path = "$workdir\inputs\uzytkownicyblank.csv"
 $header = "login|hasło|dział"
