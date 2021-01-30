@@ -1,6 +1,6 @@
 ### **_W celu uruchomienia skryptu uruchom plik main.ps1 za pomocą PowerShell'a_**
 
-
+![alt text](https://media.discordapp.net/attachments/708621038061092915/805191527168999514/unknown.png)
 
 # AZ1 Projekt poprawkowy.
 Wymogi formalne, działamy na zmiennyh, wykonywane operacje mają być realizowane niezależnie od danych wejściowych. Unikamy danych statycznych, dane mają być przypisywane tylko do zmiennych. Odczytywane dane mają zawierać tylko potrzebne dane, bez zbędnych znaków np. spacja na końcu.
