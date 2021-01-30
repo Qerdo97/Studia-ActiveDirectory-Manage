@@ -17,8 +17,8 @@ function changepassword
         Set-ADUser -identity $login -SmartcardLogonRequired $True
         $time = Get-Date
         $user = whoami
-        $blockeduser = $login.SamAccountName
-        Add-Content -value "$domain\$blockeduser|$time|$user" -path $path
+        $changePasswordUser = $login.SamAccountName
+        Add-Content -value "$domain\$changePasswordUser|$time|$user" -path $path
         write-host "Hasło zostało zmienione"
     }
     catch [Microsoft.ActiveDirectory.Management.ADPasswordComplexityException]
