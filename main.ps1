@@ -11,16 +11,16 @@ $workDir = $PSScriptRoot
 #Funkcja Authors zawiera informacje o autorach tego skrypty
 function Authors
 {
-    Write-Host    "AZ1 Poprawa"
+    Write-Host    "Projekt"
     Write-Host    ""
     Write-Host    "Authors:"
     Write-Host    "Grzegorz Sekuła"
-    Write-Host    "Nr indeksu: 17313"
+    Write-Host    "Nr indeksu: x"
     Write-Host    ""
     Write-Host    "Robert Łobasiuk"
-    Write-Host    "Nr indeksu: 17266"
+    Write-Host    "Nr indeksu: x"
     Write-Host    ""
-    Write-Host    "Nr grupy: IZ07TC01"
+    Write-Host    "Nr grupy: x"
     Write-Host    ""
 }
 
